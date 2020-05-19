@@ -1,14 +1,14 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const winston_1 = require("winston");
-function default_1(cons, settings) {
-    const successLog = cons.log;
-    const infoLog = cons.info;
-    const warnLog = cons.warn;
-    const errorLog = cons.error;
-    const trace = cons.trace;
+function default_1(settings) {
+    const successLog = globalThis.console.log;
+    const infoLog = globalThis.console.info;
+    const warnLog = globalThis.console.warn;
+    const errorLog = globalThis.console.error;
+    const trace = globalThis.console.trace;
     if (settings.trace) {
-        cons.trace = (...logs) => {
+        globalThis.console.trace = (...logs) => {
             logs.forEach((logData) => {
                 const label = Math.random().toString(16).slice(-3);
                 successLog(`=> TRACE:START:${label}`);
@@ -85,7 +85,7 @@ function default_1(cons, settings) {
             transports: transportsList,
         });
         if ((settings === null || settings === void 0 ? void 0 : settings.info) !== false) {
-            cons.info = cons.log = (...logs) => {
+            globalThis.console.info = globalThis.console.log = (...logs) => {
                 logs.forEach((logData) => {
                     logger.log({
                         level: 'info',
@@ -96,7 +96,7 @@ function default_1(cons, settings) {
             };
         }
         if ((settings === null || settings === void 0 ? void 0 : settings.warn) !== false) {
-            cons.warn = (...logs) => {
+            globalThis.console.warn = (...logs) => {
                 logs.forEach((logData) => {
                     logger.log({
                         level: 'warn',
@@ -107,7 +107,7 @@ function default_1(cons, settings) {
             };
         }
         if ((settings === null || settings === void 0 ? void 0 : settings.error) !== false) {
-            cons.error = (...logs) => {
+            globalThis.console.error = (...logs) => {
                 logs.forEach((logData) => {
                     logger.log({
                         level: 'error',
@@ -117,9 +117,8 @@ function default_1(cons, settings) {
                 });
             };
         }
-        cons.info(`console-logger: now you have winston-logger in your global console function. Please, use ${settings.info !== false ? 'console.info' : ''} ${settings.warn !== false ? 'console.warn' : ''} ${settings.error !== false ? 'console.error' : ''} for logging into your log files`);
+        globalThis.console.info(`console-logger: now you have winston-logger in your global console function. Please, use ${settings.info !== false ? 'console.info' : ''} ${settings.warn !== false ? 'console.warn' : ''} ${settings.error !== false ? 'console.error' : ''} for logging into your log files`);
     }
-    return cons;
 }
 exports.default = default_1;
 //# sourceMappingURL=index.js.map
