@@ -13,5 +13,5 @@ declare type consoleSettings = {
     } | boolean;
     trace: boolean;
 };
-export default function (cons: globalThis.Console, settings: consoleSettings): globalThis.Console;
+export default function (settings: consoleSettings): void;
 export {};

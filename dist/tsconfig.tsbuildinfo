@@ -432,8 +432,8 @@
         "affectsGlobalScope": false
       },
       "../index.ts": {
-        "version": "d4f96667391eb3cf906469ccef8e5efe9ada24ea0c2ae5a09eec9c645a36e38e",
-        "signature": "5e300831fe987d0f37c1a91ca05f1c2aa4190ac06844359143025d572b96bccb",
+        "version": "e0f864a926e703a66d81495439147fbb980571320c9c6762eeec3aa4c02b6ff9",
+        "signature": "9e14fcaa960e112704edcfa8c06d842ec0752b76fca4c17f75c6672ea57c2511",
         "affectsGlobalScope": false
       },
       "../node_modules/@types/color-name/index.d.ts": {

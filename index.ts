@@ -24,23 +24,19 @@ type consoleSettings = {
 
 /**
  *
- * @param cons your global.console function for modification
  * @param settings if not false sets winston logger with default setting for console.log console.info console.warn console.error
  * @returns modified console function
  */
 
-export default function (
-  cons: globalThis.Console,
-  settings: consoleSettings,
-): globalThis.Console {
-  const successLog = cons.log;
-  const infoLog = cons.info;
-  const warnLog = cons.warn;
-  const errorLog = cons.error;
-  const trace = cons.trace;
+export default function (settings: consoleSettings): void {
+  const successLog = globalThis.console.log;
+  const infoLog = globalThis.console.info;
+  const warnLog = globalThis.console.warn;
+  const errorLog = globalThis.console.error;
+  const trace = globalThis.console.trace;
 
   if (settings.trace) {
-    cons.trace = (...logs) => {
+    globalThis.console.trace = (...logs) => {
       logs.forEach((logData) => {
         const label = Math.random().toString(16).slice(-3);
         successLog(`=> TRACE:START:${label}`);
@@ -129,7 +125,7 @@ export default function (
     });
 
     if (settings?.info !== false) {
-      cons.info = cons.log = (...logs) => {
+      globalThis.console.info = globalThis.console.log = (...logs) => {
         logs.forEach((logData) => {
           logger.log({
             level: 'info',
@@ -141,7 +137,7 @@ export default function (
     }
 
     if (settings?.warn !== false) {
-      cons.warn = (...logs) => {
+      globalThis.console.warn = (...logs) => {
         logs.forEach((logData) => {
           logger.log({
             level: 'warn',
@@ -153,7 +149,7 @@ export default function (
     }
 
     if (settings?.error !== false) {
-      cons.error = (...logs) => {
+      globalThis.console.error = (...logs) => {
         logs.forEach((logData) => {
           logger.log({
             level: 'error',
@@ -163,7 +159,7 @@ export default function (
         });
       };
     }
-    cons.info(
+    globalThis.console.info(
       `console-logger: now you have winston-logger in your global console function. Please, use ${
         settings.info !== false ? 'console.info' : ''
       } ${settings.warn !== false ? 'console.warn' : ''} ${
@@ -171,6 +167,4 @@ export default function (
       } for logging into your log files`,
     );
   }
-
-  return cons;
 }
