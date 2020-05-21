@@ -129,8 +129,7 @@ export default function (settings: consoleSettings): void {
         logs.forEach((logData) => {
           logger.log({
             level: 'info',
-            message:
-              typeof logData === 'object' ? JSON.stringify(logData) : logData,
+            message: logData,
           });
           infoLog(logData);
         });
@@ -142,8 +141,7 @@ export default function (settings: consoleSettings): void {
         logs.forEach((logData) => {
           logger.log({
             level: 'warn',
-            message:
-              typeof logData === 'object' ? JSON.stringify(logData) : logData,
+            message: logData,
           });
           warnLog(logData);
         });
@@ -155,8 +153,7 @@ export default function (settings: consoleSettings): void {
         logs.forEach((logData) => {
           logger.log({
             level: 'error',
-            message:
-              typeof logData === 'object' ? JSON.stringify(logData) : logData,
+            message: logData,
           });
           errorLog(logData);
         });
@@ -167,7 +164,7 @@ export default function (settings: consoleSettings): void {
         settings.info !== false ? 'console.info' : ''
       } ${settings.warn !== false ? 'console.warn' : ''} ${
         settings.error !== false ? 'console.error' : ''
-      } for logging into your log files`,
+      } for logging into your log files instead other loggers`,
     );
   }
 }
