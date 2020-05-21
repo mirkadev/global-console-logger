@@ -129,7 +129,10 @@ export default function (settings: consoleSettings): void {
         logs.forEach((logData) => {
           logger.log({
             level: 'info',
-            message: logData,
+            message:
+              logData instanceof Error
+                ? `${logData}\n${logData.stack || 'no stack'}`
+                : logData,
           });
           infoLog(logData);
         });
@@ -141,7 +144,10 @@ export default function (settings: consoleSettings): void {
         logs.forEach((logData) => {
           logger.log({
             level: 'warn',
-            message: logData,
+            message:
+              logData instanceof Error
+                ? `${logData}\n${logData.stack || 'no stack'}`
+                : logData,
           });
           warnLog(logData);
         });
@@ -153,7 +159,10 @@ export default function (settings: consoleSettings): void {
         logs.forEach((logData) => {
           logger.log({
             level: 'error',
-            message: logData,
+            message:
+              logData instanceof Error
+                ? `${logData}\n${logData.stack || 'no stack'}`
+                : logData,
           });
           errorLog(logData);
         });
