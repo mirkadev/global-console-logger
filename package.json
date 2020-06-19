@@ -1,6 +1,6 @@
 {
   "name": "global-console-logger",
-  "version": "0.0.8",
+  "version": "0.0.10",
   "description": "Winston logger instead console methods",
   "main": "dist/index.js",
   "keywords": [

@@ -2,13 +2,13 @@
 
 ## Description
 
-Use winston logger as native console.log. You shouldn't have winston logger in your packages.
+Use winston logger as native console methods. You shouldn't have winston logger in your packages.
 
 ## How use
 
 You should import this `global-console-logger` package only one time in your project.
 
-Then just use your lovely `console.log`, `console.info`, `console.warn`, `console.error`.
+Then just use your lovely `console.info`, `console.warn`, `console.error`.
 
 ```typescript
 const logger = require('logger');
@@ -16,7 +16,6 @@ const logger = require('logger');
 logger();
 
 // info.log
-console.log('It message show in console and info.log file');
 console.info('It message show in console and info.log file');
 
 // warn.log

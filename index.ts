@@ -1,3 +1,8 @@
+/* eslint-disable spaced-comment */
+/* eslint-disable @typescript-eslint/ban-ts-ignore */
+/* eslint-disable no-proto */
+/* eslint-disable no-shadow */
+/* eslint-disable no-multi-assign */
 /* eslint-disable @typescript-eslint/no-use-before-define */
 import { Logger, createLogger, format, transports } from 'winston';
 
@@ -33,23 +38,59 @@ type consoleSettings = {
  */
 
 export default function (settings?: consoleSettings): void {
-  const successLog = globalThis.console.log;
-  const infoLog = globalThis.console.info;
-  const warnLog = globalThis.console.warn;
-  const errorLog = globalThis.console.error;
-  const trace = globalThis.console.trace;
+  const printer = (data) => {
+    process.stdout.write(`${data}\n`);
+  };
 
-  if (settings?.trace) {
-    globalThis.console.trace = (...logs) => {
-      logs.forEach((logData) => {
-        const label = Math.random().toString(16).slice(-3);
-        successLog(`=> TRACE:START:${label}`);
-        trace();
-        successLog(`-> ${logData}`);
-        successLog(`<= END:${label}`);
-      });
-    };
-  }
+  const printCls = (...data) => {
+    data.forEach((d) => {
+      if (Array.isArray(d)) {
+        const res = `Array => [${d}]`;
+        printer(res);
+        return;
+      }
+
+      if (d instanceof Set) {
+        const res = `Set(${d.size}) { ${[...d.keys()]} }`;
+        return printer(res);
+      }
+
+      if (d instanceof Map) {
+        const keys = [...d.keys()];
+        const values = [...d.values()];
+
+        let str = '';
+
+        keys.forEach((k, i) => {
+          const done = `${k} => ${values[i]}`;
+          str = str.concat(`${i ? ', ' : ''}${done}`);
+        });
+
+        const res = `Map(${d.size}) { ${str} }`;
+        return printer(res);
+      }
+
+      if (d instanceof Error) {
+        return printer(
+          `\nError (${d.name}) => ${d.message}\nStack => ${d.stack}\n`,
+        );
+      }
+
+      if (d !== null && typeof d === 'object') {
+        let json = '';
+
+        try {
+          json = JSON.stringify(d);
+        } catch (error) {
+          return printer(d);
+        }
+        const res = `${d.__proto__.constructor.name} => ${json}`;
+        return printer(res);
+      }
+
+      printer(d);
+    });
+  };
 
   if (
     settings?.error !== false ||
@@ -63,7 +104,7 @@ export default function (settings?: consoleSettings): void {
       )} ${ms} ${level}: ${message}`;
     });
 
-    const transportsList: Array<transports.FileTransportInstance> = [];
+    const transportsList: Array<any> = [];
 
     if (settings?.error && typeof settings?.error !== 'boolean') {
       const transport = new transports.File({
@@ -131,7 +172,7 @@ export default function (settings?: consoleSettings): void {
     });
 
     if (settings?.info !== false) {
-      globalThis.console.info = globalThis.console.log = (...logs) => {
+      globalThis.console.info = (...logs) => {
         logs.forEach((logData) => {
           logger.log({
             level: 'info',
@@ -140,7 +181,7 @@ export default function (settings?: consoleSettings): void {
                 ? `${logData}\n${logData.stack || 'no stack'}`
                 : logData,
           });
-          infoLog(logData);
+          printCls(logData);
         });
       };
     }
@@ -155,7 +196,7 @@ export default function (settings?: consoleSettings): void {
                 ? `${logData}\n${logData.stack || 'no stack'}`
                 : logData,
           });
-          warnLog(logData);
+          printCls(logData);
         });
       };
     }
@@ -170,12 +211,12 @@ export default function (settings?: consoleSettings): void {
                 ? `${logData}\n${logData.stack || 'no stack'}`
                 : logData,
           });
-          errorLog(logData);
+          printCls(logData);
         });
       };
     }
     globalThis.console.info(
-      `console-logger: now you have winston-logger in your global console function`,
+      `console-logger: now you have winston logger in your global console object`,
     );
   }
 }
