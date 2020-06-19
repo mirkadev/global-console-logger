@@ -432,7 +432,7 @@
         "affectsGlobalScope": false
       },
       "../index.ts": {
-        "version": "6ab2979770d7a1c639154f446a7e541495e1d39799093be0d2e6ff56e94780e0",
+        "version": "78d039554f8bab04d011a93a9d861281063a0bfb23e3ebfbc88618cd97359f79",
         "signature": "5e5aab06593897e6c58fbac71a062dcfbe03749c10348de92e3b77fddde40b98",
         "affectsGlobalScope": false
       },
@@ -454,6 +454,11 @@
       "../node_modules/@types/json5/index.d.ts": {
         "version": "96d14f21b7652903852eef49379d04dbda28c16ed36468f8c9fa08f7c14c9538",
         "signature": "96d14f21b7652903852eef49379d04dbda28c16ed36468f8c9fa08f7c14c9538",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/moment/ts3.1-typings/moment.d.ts": {
+        "version": "ee08b4d535febfed2ab0ed4a943c26eee9646a0b6fd674552d925544e0e0afd4",
+        "signature": "ee08b4d535febfed2ab0ed4a943c26eee9646a0b6fd674552d925544e0e0afd4",
         "affectsGlobalScope": false
       },
       "../node_modules/@types/validator/index.d.ts": {
@@ -1096,6 +1101,12 @@
         "../node_modules/@types/node/util.d.ts"
       ],
       "../node_modules/logform/index.d.ts": [
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
+      "../node_modules/moment/ts3.1-typings/moment.d.ts": [
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts",
@@ -1757,6 +1768,12 @@
         "../node_modules/@types/node/ts3.2/util.d.ts",
         "../node_modules/@types/node/util.d.ts"
       ],
+      "../node_modules/moment/ts3.1-typings/moment.d.ts": [
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
       "../node_modules/winston-transport/index.d.ts": [
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/stream.d.ts",
@@ -1884,6 +1901,7 @@
       "../node_modules/@types/node/zlib.d.ts",
       "../node_modules/@types/validator/index.d.ts",
       "../node_modules/logform/index.d.ts",
+      "../node_modules/moment/ts3.1-typings/moment.d.ts",
       "../node_modules/winston-transport/index.d.ts",
       "../node_modules/winston/index.d.ts",
       "../node_modules/winston/lib/winston/config/index.d.ts",
