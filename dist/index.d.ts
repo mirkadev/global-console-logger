@@ -11,7 +11,10 @@ declare type consoleSettings = {
         maxFiles: number;
         maxsize: number;
     } | boolean;
-    trace: boolean;
+    trace?: boolean;
+    timeStamp: {
+        locale: string;
+    };
 };
-export default function (settings: consoleSettings): void;
+export default function (settings?: consoleSettings): void;
 export {};

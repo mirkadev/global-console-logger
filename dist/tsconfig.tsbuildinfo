@@ -432,8 +432,8 @@
         "affectsGlobalScope": false
       },
       "../index.ts": {
-        "version": "ac9e9586cbc3c7c13cf2afd625460e740843d2c08668a68cb28a0598cabef6ec",
-        "signature": "9e14fcaa960e112704edcfa8c06d842ec0752b76fca4c17f75c6672ea57c2511",
+        "version": "6ab2979770d7a1c639154f446a7e541495e1d39799093be0d2e6ff56e94780e0",
+        "signature": "5e5aab06593897e6c58fbac71a062dcfbe03749c10348de92e3b77fddde40b98",
         "affectsGlobalScope": false
       },
       "../node_modules/@types/color-name/index.d.ts": {
@@ -473,6 +473,7 @@
       "outDir": "./",
       "baseUrl": "..",
       "incremental": true,
+      "strictNullChecks": true,
       "configFilePath": "../tsconfig.json"
     },
     "referencedMap": {

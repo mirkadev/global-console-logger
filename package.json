@@ -1,11 +1,8 @@
 {
   "name": "global-console-logger",
-  "version": "0.0.6",
-  "description": "Winston logger instead console function",
+  "version": "0.0.8",
+  "description": "Winston logger instead console methods",
   "main": "dist/index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "keywords": [
     "logger",
     "winston",
@@ -14,6 +11,10 @@
   ],
   "author": "Vladimir Mironov",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lmjsprog/global-console-logger"
+  },
   "dependencies": {
     "winston": "^3.2.1"
   },
