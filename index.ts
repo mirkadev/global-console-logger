@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-use-before-define */
 import { Logger, createLogger, format, transports } from 'winston';
 
 type consoleSettings = {
@@ -19,23 +20,26 @@ type consoleSettings = {
         maxsize: number;
       }
     | boolean;
-  trace: boolean;
+  trace?: boolean;
+  timeStamp: {
+    locale: string;
+  };
 };
 
 /**
  *
- * @param settings if not false sets winston logger with default setting for console.log console.info console.warn console.error
- * @returns modified console function
+ * @param settings {object}
+ * @returns {void} changed console methods
  */
 
-export default function (settings: consoleSettings): void {
+export default function (settings?: consoleSettings): void {
   const successLog = globalThis.console.log;
   const infoLog = globalThis.console.info;
   const warnLog = globalThis.console.warn;
   const errorLog = globalThis.console.error;
   const trace = globalThis.console.trace;
 
-  if (settings.trace) {
+  if (settings?.trace) {
     globalThis.console.trace = (...logs) => {
       logs.forEach((logData) => {
         const label = Math.random().toString(16).slice(-3);
@@ -48,23 +52,25 @@ export default function (settings: consoleSettings): void {
   }
 
   if (
-    settings.error !== false ||
-    settings.info !== false ||
-    settings.warn !== false
+    settings?.error !== false ||
+    settings?.info !== false ||
+    settings?.warn !== false
   ) {
-    const { combine, timestamp, printf, ms } = format;
-    const self = printf(({ level, message, timestamp, ms }) => {
-      return `=> ${timestamp} ${ms} ${level}: ${message}`;
+    const { combine, printf, ms } = format;
+    const self = printf(({ level, message, ms }) => {
+      return `=> ${getDateTime(
+        settings?.timeStamp.locale,
+      )} ${ms} ${level}: ${message}`;
     });
 
     const transportsList: Array<transports.FileTransportInstance> = [];
 
-    if (settings.error && typeof settings.error !== 'boolean') {
+    if (settings?.error && typeof settings?.error !== 'boolean') {
       const transport = new transports.File({
         filename: 'error.log',
         level: 'error',
-        maxFiles: settings.error.maxFiles,
-        maxsize: settings.error.maxsize,
+        maxFiles: settings?.error.maxFiles,
+        maxsize: settings?.error.maxsize,
       });
 
       transportsList.push(transport);
@@ -79,12 +85,12 @@ export default function (settings: consoleSettings): void {
       transportsList.push(transport);
     }
 
-    if (settings.info && typeof settings.info !== 'boolean') {
+    if (settings?.info && typeof settings?.info !== 'boolean') {
       const transport = new transports.File({
         filename: 'info.log',
         level: 'info',
-        maxFiles: settings.info.maxFiles,
-        maxsize: settings.info.maxsize,
+        maxFiles: settings?.info.maxFiles,
+        maxsize: settings?.info.maxsize,
       });
 
       transportsList.push(transport);
@@ -99,12 +105,12 @@ export default function (settings: consoleSettings): void {
       transportsList.push(transport);
     }
 
-    if (settings.warn && typeof settings.warn !== 'boolean') {
+    if (settings?.warn && typeof settings?.warn !== 'boolean') {
       const transport = new transports.File({
         filename: 'warn.log',
         level: 'warn',
-        maxFiles: settings.warn.maxFiles,
-        maxsize: settings.warn.maxsize,
+        maxFiles: settings?.warn.maxFiles,
+        maxsize: settings?.warn.maxsize,
       });
 
       transportsList.push(transport);
@@ -120,7 +126,7 @@ export default function (settings: consoleSettings): void {
     }
 
     const logger: Logger = createLogger({
-      format: combine(timestamp(), ms(), self),
+      format: combine(ms(), self),
       transports: transportsList,
     });
 
@@ -169,11 +175,16 @@ export default function (settings: consoleSettings): void {
       };
     }
     globalThis.console.info(
-      `console-logger: now you have winston-logger in your global console function. Please, use ${
-        settings.info !== false ? 'console.info' : ''
-      } ${settings.warn !== false ? 'console.warn' : ''} ${
-        settings.error !== false ? 'console.error' : ''
-      } for logging into your log files instead other loggers`,
+      `console-logger: now you have winston-logger in your global console function`,
     );
   }
+}
+
+function getDateTime(locale = 'ru-RU'): string {
+  process.env.TZ = process.env.TZ || 'Europe/Moscow';
+
+  const date = new Date();
+  const dateString = date.toLocaleString(locale);
+
+  return dateString;
 }

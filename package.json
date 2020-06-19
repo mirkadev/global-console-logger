@@ -1,6 +1,6 @@
 {
   "name": "global-console-logger",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Winston logger instead console function",
   "main": "dist/index.js",
   "scripts": {
@@ -20,6 +20,7 @@
   "devDependencies": {
     "@types/node": "^13.13.6",
     "@types/validator": "^13.0.0",
+    "@types/winston": "^2.4.4",
     "@typescript-eslint/eslint-plugin": "^2.23.0",
     "@typescript-eslint/parser": "^2.23.0",
     "eslint": "^6.8.0",
