@@ -1,22 +1,28 @@
 {
   "name": "global-console-logger",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "description": "Winston logger instead console methods",
-  "main": "dist/index.js",
+  "author": "lmjsprog",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lmjsprog/global-console-logger.git"
+  },
+  "bugs": {
+    "url": "https://github.com/lmjsprog/global-console-logger/issues"
+  },
+  "homepage": "https://github.com/lmjsprog/global-console-logger",
   "keywords": [
     "logger",
     "winston",
     "nodejs",
-    "console"
+    "console",
+    "npm",
+    "package"
   ],
-  "author": "Vladimir Mironov",
-  "license": "ISC",
+  "main": "dist/index.js",
   "scripts": {
     "build": "tsc -p tsconfig.build.json"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/lmjsprog/global-console-logger"
   },
   "dependencies": {
     "winston": "^3.2.1"
