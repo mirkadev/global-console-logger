@@ -1,6 +1,6 @@
 {
   "name": "global-console-logger",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "description": "Winston logger instead console methods",
   "author": "lmjsprog",
   "license": "ISC",
