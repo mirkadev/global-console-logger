@@ -16,5 +16,5 @@ declare type consoleSettings = {
         locale: string;
     };
 };
-export default function (settings?: consoleSettings): void;
-export {};
+declare function logger(settings?: consoleSettings): void;
+export { logger };

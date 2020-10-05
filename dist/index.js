@@ -1,7 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.logger = void 0;
 const winston_1 = require("winston");
-function default_1(settings) {
+function logger(settings) {
     const printer = (data) => {
         process.stdout.write(`${data}\n`);
     };
@@ -111,7 +112,7 @@ function default_1(settings) {
             transports: transportsList,
         });
         if ((settings === null || settings === void 0 ? void 0 : settings.info) !== false) {
-            globalThis.console.info = (...logs) => {
+            global.console.info = (...logs) => {
                 logs.forEach((logData) => {
                     logger.log({
                         level: 'info',
@@ -124,7 +125,7 @@ function default_1(settings) {
             };
         }
         if ((settings === null || settings === void 0 ? void 0 : settings.warn) !== false) {
-            globalThis.console.warn = (...logs) => {
+            global.console.warn = (...logs) => {
                 logs.forEach((logData) => {
                     logger.log({
                         level: 'warn',
@@ -137,7 +138,7 @@ function default_1(settings) {
             };
         }
         if ((settings === null || settings === void 0 ? void 0 : settings.error) !== false) {
-            globalThis.console.error = (...logs) => {
+            global.console.error = (...logs) => {
                 logs.forEach((logData) => {
                     logger.log({
                         level: 'error',
@@ -149,10 +150,9 @@ function default_1(settings) {
                 });
             };
         }
-        globalThis.console.info(`console-logger: now you have winston logger in your global console object`);
     }
 }
-exports.default = default_1;
+exports.logger = logger;
 function getDateTime(locale = 'ru-RU') {
     process.env.TZ = process.env.TZ || 'Europe/Moscow';
     const date = new Date();

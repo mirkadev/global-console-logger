@@ -1,6 +1,11 @@
 {
   "program": {
     "fileInfos": {
+      "../node_modules/typescript/lib/lib.es6.d.ts": {
+        "version": "721cec59c3fef87aaf480047d821fb758b3ec9482c4129a54631e6e25e432a31",
+        "signature": "721cec59c3fef87aaf480047d821fb758b3ec9482c4129a54631e6e25e432a31",
+        "affectsGlobalScope": false
+      },
       "../node_modules/typescript/lib/lib.es5.d.ts": {
         "version": "70ae6416528e68c2ee7b62892200d2ca631759943d4429f8b779b947ff1e124d",
         "signature": "70ae6416528e68c2ee7b62892200d2ca631759943d4429f8b779b947ff1e124d",
@@ -155,11 +160,6 @@
         "version": "89bf2b7a601b73ea4311eda9c41f86a58994fec1bee3b87c4a14d68d9adcdcbd",
         "signature": "89bf2b7a601b73ea4311eda9c41f86a58994fec1bee3b87c4a14d68d9adcdcbd",
         "affectsGlobalScope": true
-      },
-      "../node_modules/typescript/lib/lib.es2017.full.d.ts": {
-        "version": "d2f31f19e1ba6ed59be9259d660a239d9a3fcbbc8e038c6b2009bde34b175fed",
-        "signature": "d2f31f19e1ba6ed59be9259d660a239d9a3fcbbc8e038c6b2009bde34b175fed",
-        "affectsGlobalScope": false
       },
       "../node_modules/@types/node/globals.d.ts": {
         "version": "9d0b32c595a2e0d320a56b3d0e8f0a317e4149239ec913aa8f11eeb73edc92be",
@@ -407,8 +407,8 @@
         "affectsGlobalScope": false
       },
       "../node_modules/logform/index.d.ts": {
-        "version": "6dbcfbc6f4662840d93d1d9d7fb5cce1b1fa00f43caa595ffee1a70f1583a0b0",
-        "signature": "6dbcfbc6f4662840d93d1d9d7fb5cce1b1fa00f43caa595ffee1a70f1583a0b0",
+        "version": "89c631193ed616083e1ee16611dae34d719029b77274680d0f00dbf3bb8ba998",
+        "signature": "89c631193ed616083e1ee16611dae34d719029b77274680d0f00dbf3bb8ba998",
         "affectsGlobalScope": false
       },
       "../node_modules/winston-transport/index.d.ts": {
@@ -422,18 +422,28 @@
         "affectsGlobalScope": false
       },
       "../node_modules/winston/lib/winston/transports/index.d.ts": {
-        "version": "87ccbc897e31409ff604f0b0b0f7a29efa1e51f0858aaea9ec294deec863558c",
-        "signature": "87ccbc897e31409ff604f0b0b0f7a29efa1e51f0858aaea9ec294deec863558c",
+        "version": "3fb6de4789fba0473c4877a4ef4ee002902ccef2b04f620caf2313e4d1b2aecc",
+        "signature": "3fb6de4789fba0473c4877a4ef4ee002902ccef2b04f620caf2313e4d1b2aecc",
         "affectsGlobalScope": false
       },
       "../node_modules/winston/index.d.ts": {
-        "version": "4bd85c7eeaceccc938121fcbd580883f6bb84d8326eb0db9c79a9961551a2bc5",
-        "signature": "4bd85c7eeaceccc938121fcbd580883f6bb84d8326eb0db9c79a9961551a2bc5",
+        "version": "e7c0503e5da78c978e6b9c43dc5728312fa9e19943fd392eca047739e348f283",
+        "signature": "e7c0503e5da78c978e6b9c43dc5728312fa9e19943fd392eca047739e348f283",
         "affectsGlobalScope": false
       },
       "../index.ts": {
-        "version": "78d039554f8bab04d011a93a9d861281063a0bfb23e3ebfbc88618cd97359f79",
-        "signature": "5e5aab06593897e6c58fbac71a062dcfbe03749c10348de92e3b77fddde40b98",
+        "version": "ba8a9f1c5e68699dcf5c69c72af7720633d22425ba44b1c3e6bf0d16f9e9e211",
+        "signature": "35e5f28949b3d18bce581f614a5a77bc3022ab1835b0a240734f4f53540d61ad",
+        "affectsGlobalScope": false
+      },
+      "./index.d.ts": {
+        "version": "35e5f28949b3d18bce581f614a5a77bc3022ab1835b0a240734f4f53540d61ad",
+        "signature": "35e5f28949b3d18bce581f614a5a77bc3022ab1835b0a240734f4f53540d61ad",
+        "affectsGlobalScope": false
+      },
+      "../test.ts": {
+        "version": "27edffdaaaed40f2665748231d28dedaf2e351075f004cbf39dee2599709118a",
+        "signature": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
         "affectsGlobalScope": false
       },
       "../node_modules/@types/color-name/index.d.ts": {
@@ -468,7 +478,7 @@
       "removeComments": true,
       "emitDecoratorMetadata": true,
       "experimentalDecorators": true,
-      "target": 4,
+      "target": 2,
       "sourceMap": true,
       "outDir": "./",
       "baseUrl": "..",
@@ -479,6 +489,12 @@
       "configFilePath": "../tsconfig.build.json"
     },
     "referencedMap": {
+      "./index.d.ts": [
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
       "../index.ts": [
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
@@ -1001,12 +1017,6 @@
         "../node_modules/@types/node/ts3.2/util.d.ts",
         "../node_modules/@types/node/util.d.ts"
       ],
-      "../node_modules/typescript/lib/lib.es2017.full.d.ts": [
-        "../node_modules/@types/node/fs.d.ts",
-        "../node_modules/@types/node/ts3.2/fs.d.ts",
-        "../node_modules/@types/node/ts3.2/util.d.ts",
-        "../node_modules/@types/node/util.d.ts"
-      ],
       "../node_modules/typescript/lib/lib.es2017.intl.d.ts": [
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
@@ -1085,6 +1095,12 @@
         "../node_modules/@types/node/ts3.2/util.d.ts",
         "../node_modules/@types/node/util.d.ts"
       ],
+      "../node_modules/typescript/lib/lib.es6.d.ts": [
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
       "../node_modules/typescript/lib/lib.esnext.intl.d.ts": [
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
@@ -1139,9 +1155,22 @@
         "../node_modules/@types/node/ts3.7/index.d.ts",
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/winston-transport/index.d.ts"
+      ],
+      "../test.ts": [
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "./index.d.ts"
       ]
     },
     "exportedModulesMap": {
+      "./index.d.ts": [
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
       "../node_modules/@types/color-name/index.d.ts": [
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
@@ -1657,12 +1686,6 @@
         "../node_modules/@types/node/ts3.2/util.d.ts",
         "../node_modules/@types/node/util.d.ts"
       ],
-      "../node_modules/typescript/lib/lib.es2017.full.d.ts": [
-        "../node_modules/@types/node/fs.d.ts",
-        "../node_modules/@types/node/ts3.2/fs.d.ts",
-        "../node_modules/@types/node/ts3.2/util.d.ts",
-        "../node_modules/@types/node/util.d.ts"
-      ],
       "../node_modules/typescript/lib/lib.es2017.intl.d.ts": [
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
@@ -1736,6 +1759,12 @@
         "../node_modules/@types/node/util.d.ts"
       ],
       "../node_modules/typescript/lib/lib.es5.d.ts": [
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
+      "../node_modules/typescript/lib/lib.es6.d.ts": [
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts",
@@ -1869,7 +1898,6 @@
       "../node_modules/typescript/lib/lib.es2016.array.include.d.ts",
       "../node_modules/typescript/lib/lib.es2016.d.ts",
       "../node_modules/typescript/lib/lib.es2017.d.ts",
-      "../node_modules/typescript/lib/lib.es2017.full.d.ts",
       "../node_modules/typescript/lib/lib.es2017.intl.d.ts",
       "../node_modules/typescript/lib/lib.es2017.object.d.ts",
       "../node_modules/typescript/lib/lib.es2017.sharedmemory.d.ts",
@@ -1883,6 +1911,7 @@
       "../node_modules/typescript/lib/lib.es2018.regexp.d.ts",
       "../node_modules/typescript/lib/lib.es2020.bigint.d.ts",
       "../node_modules/typescript/lib/lib.es5.d.ts",
+      "../node_modules/typescript/lib/lib.es6.d.ts",
       "../node_modules/typescript/lib/lib.esnext.intl.d.ts",
       "../node_modules/typescript/lib/lib.scripthost.d.ts",
       "../node_modules/typescript/lib/lib.webworker.importscripts.d.ts",

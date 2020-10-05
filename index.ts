@@ -37,7 +37,7 @@ type consoleSettings = {
  * @returns {void} changed console methods
  */
 
-export default function (settings?: consoleSettings): void {
+function logger(settings?: consoleSettings): void {
   const printer = (data) => {
     process.stdout.write(`${data}\n`);
   };
@@ -172,7 +172,7 @@ export default function (settings?: consoleSettings): void {
     });
 
     if (settings?.info !== false) {
-      globalThis.console.info = (...logs) => {
+      global.console.info = (...logs) => {
         logs.forEach((logData) => {
           logger.log({
             level: 'info',
@@ -187,7 +187,7 @@ export default function (settings?: consoleSettings): void {
     }
 
     if (settings?.warn !== false) {
-      globalThis.console.warn = (...logs) => {
+      global.console.warn = (...logs) => {
         logs.forEach((logData) => {
           logger.log({
             level: 'warn',
@@ -202,7 +202,7 @@ export default function (settings?: consoleSettings): void {
     }
 
     if (settings?.error !== false) {
-      globalThis.console.error = (...logs) => {
+      global.console.error = (...logs) => {
         logs.forEach((logData) => {
           logger.log({
             level: 'error',
@@ -215,9 +215,6 @@ export default function (settings?: consoleSettings): void {
         });
       };
     }
-    globalThis.console.info(
-      `console-logger: now you have winston logger in your global console object`,
-    );
   }
 }
 
@@ -229,3 +226,5 @@ function getDateTime(locale = 'ru-RU'): string {
 
   return dateString;
 }
+
+export { logger };

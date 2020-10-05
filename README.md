@@ -10,8 +10,8 @@ You should import this `global-console-logger` package only one time in your pro
 
 Then just use your lovely `console.info`, `console.warn`, `console.error`.
 
-```typescript
-const logger = require('logger');
+```javascript
+const { logger } = require('global-console-logger');
 
 logger();
 
@@ -27,8 +27,8 @@ console.error('It message show in console and error.log file');
 
 ## Transport settings
 
-```typescript
-const logger = require('logger');
+```javascript
+const { logger } = require('global-console-logger');
 
 logger({ info: false, error: { maxFiles: 10, maxsize: 625000 } });
 ```
@@ -45,6 +45,6 @@ Use `process.env.TZ = 'Europe/Moscow'` for set timezone.
 
 Locale setting:
 
-```typescript
+```javascript
 logger({ timeStamp: { locale: 'ru-RU' } });
 ```
