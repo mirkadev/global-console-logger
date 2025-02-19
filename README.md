@@ -1,3 +1,5 @@
+# Note: It's bad practice to use such an approach. I did it when I was young as a programmer 🤷‍♂️
+
 # Global Console Logger
 
 ## Description
